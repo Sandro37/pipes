@@ -26,4 +26,18 @@ export class PipesExemplosComponent implements OnInit {
   addCurso(newCurso:string){
       this.livros.push(newCurso);
   }
+
+  obterCursos(){
+    if(this.livros.length === 0 || this.filtro === undefined
+      || this.filtro.trim() === ''){
+      return this.livros;
+    }
+
+    return this.livros.filter((v) => {
+      if(v.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0){
+        return true;
+      }
+      return false;
+    })
+  }
 }

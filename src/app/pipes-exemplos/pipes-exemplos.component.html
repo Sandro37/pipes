@@ -9,7 +9,7 @@
 <br>
 <p>Livro: {{ livro | json }}</p>
 
-
+<h5>PIPE PURO</h5>
 <input type="text" [(ngModel)]="filtro" >
 <ul>
     <li *ngFor="let liv of livros | filtroArray:filtro"  >
@@ -19,3 +19,21 @@
 <br>
 <input type="text" #newValue>
 <button (click)="addCurso(newValue.value)">Add curso</button>
+<hr>
+
+<h5>PIPE IMPURO</h5>
+<input type="text" [(ngModel)]="filtro" >
+<ul>
+    <li *ngFor="let liv of livros | filtroArrayImpuro:filtro"  >
+        {{ liv }}
+    </li>
+</ul>
+
+
+<h5>MANEIRA CORRETA DE USAR FILTRO NOS PROJETOS</h5>
+<input type="text" [(ngModel)]="filtro" >
+<ul>
+    <li *ngFor="let liv of obterCursos()"  >
+        {{ liv }}
+    </li>
+</ul>
